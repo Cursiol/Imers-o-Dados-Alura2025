@@ -10,6 +10,68 @@ st.set_page_config(
     layout="wide", #wide para ocupar toda a largura da tela
 )
 
+# ---------- TEMA DARK ----------
+PURPLE = "#BEBADA"     
+YELLOW = "#FFFFB3" 
+BLUE = "#A6CEE3"   
+BOX_GRAY = "#1A1A1A"   
+BORDER = "#5C5858"
+
+st.markdown(f"""
+<style>
+/* fundo preto e texto branco no app */
+html, body, [data-testid="stAppViewContainer"] {{
+  background:#000 !important;
+  color:#FFFFFF !important;
+}}
+[data-testid="stHeader"] {{ background: transparent; }}
+h1, h2, h3, h4, h5, h6, p, label, span, div {{
+  color:#FFFFFF !important;
+}}
+
+/* fundo da sidebar */
+[data-testid="stSidebar"] {{
+  background-color: {BOX_GRAY};
+}}
+
+/* caixas de input na sidebar */
+[data-testid="stSidebar"] .stMultiSelect,
+[data-testid="stSidebar"] .stSelectbox,
+[data-testid="stSidebar"] .stTextInput,
+[data-testid="stSidebar"] .stNumberInput {{
+  background: {BOX_GRAY};
+  border-radius:12px;
+  padding:8px 10px;
+  border:1px solid {BORDER};
+}}
+
+/* tabela */
+[data-testid="stDataFrame"] {{
+  background:{BOX_GRAY};
+  border:1px solid {BORDER};
+  border-radius:12px;
+  padding:8px;
+}}
+[data-testid="stDataFrame"] * {{
+  color:#FFFFFF !important;
+}}
+
+/* chips */
+[data-testid="stSidebar"] [data-baseweb="tag"] {{
+  background-color:{PURPLE};
+  color:#000000 !important;
+  border-radius:12px;
+  border:none;
+  font-weight:600;
+}}
+[data-testid="stSidebar"] [data-baseweb="tag"] * {{
+  color:#000000 !important;
+}}
+</style>
+""", unsafe_allow_html=True)
+
+
+
 # Carregar os dados para o tratamento de informações
 df = pd.read_csv("https://raw.githubusercontent.com/vqrca/dashboard_salarios_dados/refs/heads/main/dados-imersao-final.csv")
 
